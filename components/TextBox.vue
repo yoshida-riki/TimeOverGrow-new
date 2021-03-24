@@ -122,10 +122,14 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import Vuetify from 'vuetify';
 import MessageModel from '../models/Message';
 import TagModel from '../models/Tag';
 import firebase, { dbTags } from '../plugins/firebase';
 import Button from './Button';
+
+Vue.use(Vuetify);
 
 export default {
   components: {
@@ -150,7 +154,6 @@ export default {
       minutesTimes: 0,
       alert: false,
       editing: null,
-      // index: -1,
       items: [{ header: 'タグを選択するか作成して下さい。' }],
       select: [],
       dbMessagesTags: [],
@@ -230,8 +233,6 @@ export default {
         this.select = '';
         this.dbMessagesTags = [];
       } catch {
-        // this.select = '';
-        // this.dbMessagesTags = [];
         this.alert = true;
       }
     },
